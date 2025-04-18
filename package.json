@@ -1,0 +1,15 @@
+{
+  "name": "typescript-temp",
+  "version": "1.0.0",
+  "description": "TypeScript learning project",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "web-dev-server --node-resolve --open --watch"
+  },
+  "keywords": [],
+  "author": "Eduard Konovka <ed098ua@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@web/dev-server": "^0.4.6"
+  }
+}
