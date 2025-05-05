@@ -1,5 +1,5 @@
+import './lesson1';
 import { concatenation } from './concatenation';
-import { user } from './lesson1';
 
 const button = document.querySelector('button')!;
 const input = document.querySelector('input')!;
@@ -10,4 +10,3 @@ if (button && input) {
   });
 }
 
-user.greet();

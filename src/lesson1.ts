@@ -17,7 +17,7 @@ type User = {
 };
     
 const user: User = {
-  name: 'John',
+  name: 'John Doe',
   age: 30,
   isActive: true,
   hobbies: ['reading', 'gaming'],
@@ -34,5 +34,7 @@ const user: User = {
 type size = 'small' | 'medium' | 'large';
 const shirtSize: size = 'medium'; // This is valid
 // const invalidSize: size = 'extra-large'; // This will cause a TypeScript error
+
+user.greet();
 
 export { total, userName, isActive, numbers, User, user, size, shirtSize };
