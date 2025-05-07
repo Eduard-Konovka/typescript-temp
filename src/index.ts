@@ -1,12 +1,9 @@
-import './lesson1';
-import { concatenation } from './concatenation';
+import './module1';
+import './module2';
+// import './module3';
+// import './module4';
+// import './lesson1';
+// import './lesson2';
+// import './lesson3';
 
-const button = document.querySelector('button')!;
-const input = document.querySelector('input')!;
-
-if (button && input) {
-  button.addEventListener('click', () => {
-    concatenation(input.value, 'hello!');
-  });
-}
 
