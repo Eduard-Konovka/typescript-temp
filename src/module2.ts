@@ -19,7 +19,7 @@ notSure = {};
 let num: number;
 
 num = notSure;
-console.log('num', num)
+// console.log('num', num)
 
 let date: [number, number, number];
 date = [7, 11, 2023]; // OK
@@ -30,8 +30,21 @@ fixed = ['Text', 10];
 
 fixed.push('Add this text');
 
-console.log(fixed)
+// console.log(fixed)
 
 let tuple: [string, ...number[]];
 
 tuple = ['hello', 42, 100, 200]; // OK
+
+enum Role {
+  ADMIN,
+  USER,
+}
+
+const person = {
+  role: Role.ADMIN,
+};
+
+if (person.role === Role.ADMIN) {
+  console.log('Role: ', Role.ADMIN);
+}
