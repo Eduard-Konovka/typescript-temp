@@ -46,5 +46,17 @@ const person = {
 };
 
 if (person.role === Role.ADMIN) {
-  console.log('Role: ', Role.ADMIN);
+  console.log('Role: ', Role.ADMIN); // Role: 0
 }
+
+enum HttpCodes {
+  OK = 200,
+  BadRequest = 400,
+  Unauthorized = 401,
+}
+
+function respond(status: HttpCodes) {
+  console.log('Status:', status)
+}
+
+respond(HttpCodes.OK); // Status: 200
