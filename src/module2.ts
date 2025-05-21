@@ -616,3 +616,53 @@ function letAnimalTalk(animal: Dog4 | Cat4) {
     animal.meow();
   }
 }
+
+//
+
+type Admin3 = {
+  name: string;
+  privileges: string[];
+};
+
+type Employee3 = {
+  name: string;
+  startDate: Date;
+};
+
+type Staff3 = Admin3 | Employee3;
+
+function isEmployee(staff: Staff3): staff is Employee3 {
+  return (staff as Employee3).startDate !== undefined;
+}
+
+const staffMember: Staff3 = { name: "Bob", startDate: new Date() };
+
+if (isEmployee(staffMember)) {
+  // console.log(
+  //   `Welcome on board, ${staffMember.name}! Your start date is ${staffMember.startDate}`
+  // );
+}
+
+// Type Casting ===================
+// Type casting - це механізм, який дозволяє вам вказати TypeScript, що змінна має певний тип
+// Type casting може бути реалізований за допомогою операторів as або <type>
+
+let someValue: unknown = "this is a string";
+
+let strLength1: number = (<string>someValue).length;
+// or
+let strLength2: number = (someValue as string).length;
+
+// let strLength3: number = someValue.length; // Error: Object is of type 'unknown'.
+
+const input = document.getElementById("inputEmail") as HTMLInputElement;
+
+if (input) {
+  (input as HTMLInputElement).placeholder = "Enter name...";
+}
+
+// Index Properties ==================
+// Індексаційні властивості дозволяють вам визначити тип об'єкта, який може бути доступний за допомогою індексації
+// Це може бути корисно, коли ви хочете створити об'єкт, який може мати різні властивості
+// або коли ви хочете створити об'єкт, який може мати різні типи даних
+// Індексаційні властивості можуть бути реалізовані за допомогою операторів [key: string]: type або [key: number]: type
