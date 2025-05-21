@@ -655,7 +655,7 @@ let strLength2: number = (someValue as string).length;
 
 // let strLength3: number = someValue.length; // Error: Object is of type 'unknown'.
 
-const input = document.getElementById("inputEmail") as HTMLInputElement;
+const input = document.getElementById("enterName") as HTMLInputElement;
 
 if (input) {
   (input as HTMLInputElement).placeholder = "Enter name...";
