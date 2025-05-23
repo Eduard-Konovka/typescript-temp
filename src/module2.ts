@@ -701,3 +701,18 @@ function combine3(input1: any, input2: any) {
 // console.log(combine3("Hello", "World")); // Outputs: HelloWorld
 // console.log(combine3("Hello", 2)); // Outputs: Hello2
 // console.log(combine3(1, "World")); // Outputs: 1World
+
+function concatenate(strs: string[]): string;
+function concatenate(strs: string[], separator: string): string;
+function concatenate(strs: any, separator?: any): any {
+  if (separator !== undefined) {
+    return strs.join(separator);
+  } else {
+    return strs.join("");
+  }
+}
+
+let names = ["Alice", "Bob", "Charlie"];
+
+console.log(concatenate(names)); // Outputs: AliceBobCharlie
+console.log(concatenate(names, ", ")); // Outputs: Alice, Bob, Charlie
