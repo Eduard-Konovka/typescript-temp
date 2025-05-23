@@ -697,7 +697,7 @@ function combine3(input1: any, input2: any) {
   }
 }
 
-console.log(combine3(1, 2)); // Outputs: 3
-console.log(combine3("Hello", "World")); // Outputs: HelloWorld
-console.log(combine3("Hello", 2)); // Outputs: Hello2
-console.log(combine3(1, "World")); // Outputs: 1World
+// console.log(combine3(1, 2)); // Outputs: 3
+// console.log(combine3("Hello", "World")); // Outputs: HelloWorld
+// console.log(combine3("Hello", 2)); // Outputs: Hello2
+// console.log(combine3(1, "World")); // Outputs: 1World
