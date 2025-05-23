@@ -714,5 +714,5 @@ function concatenate(strs: any, separator?: any): any {
 
 let names = ["Alice", "Bob", "Charlie"];
 
-console.log(concatenate(names)); // Outputs: AliceBobCharlie
-console.log(concatenate(names, ", ")); // Outputs: Alice, Bob, Charlie
+// console.log(concatenate(names)); // Outputs: AliceBobCharlie
+// console.log(concatenate(names, ", ")); // Outputs: Alice, Bob, Charlie
