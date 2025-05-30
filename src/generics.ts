@@ -96,3 +96,5 @@ function merge3<T extends object, U extends object>(objA: T, objB: U) {
 const merged3 = merge3<Person3, AdditionFields>({ name: "Alisa" }, { age: 28 });
 
 merged3.name;
+
+// Extends =================================
