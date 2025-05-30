@@ -67,7 +67,7 @@ const merged = merge({ name: "Alisa" }, { age: 28 }) as {
 
 merged.name;
 
-function merge2<T, U>(objA2: T, objB2: U) {
+function merge2<T extends object, U extends object>(objA2: T, objB2: U) {
   return Object.assign(objA2, objB2);
 }
 
@@ -89,10 +89,10 @@ type AdditionFields = {
   age: number;
 };
 
-function merge3<T, U>(objA: T, objB: U) {
+function merge3<T extends object, U extends object>(objA: T, objB: U) {
   return Object.assign(objA, objB);
 }
 
-const merged3 = merge<Person3, AdditionFields>({ name: "Alisa" }, { age: 28 });
+const merged3 = merge3<Person3, AdditionFields>({ name: "Alisa" }, { age: 28 });
 
 merged3.name;
