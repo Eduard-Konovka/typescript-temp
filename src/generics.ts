@@ -98,3 +98,13 @@ const merged3 = merge3<Person3, AdditionFields>({ name: "Alisa" }, { age: 28 });
 merged3.name;
 
 // Extends =================================
+
+// const merged4 = merge({ name: "Alisa" }, "TEXT"); // {0: 'T', 1: 'E', 2: 'X', 3: 'T', name: 'Alisa'}
+
+function merge5<T extends object, U extends object>(objA: T, objB: U) {
+  return Object.assign(objA, objB);
+}
+
+const merged5 = merge5({ name: "Alisa" }, "TEXT");
+
+merged.name;
