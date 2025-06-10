@@ -99,15 +99,15 @@ merged3.name;
 
 // Extends =================================
 
-const merged4 = merge({ name: "Alisa" }, "TEXT"); // {0: 'T', 1: 'E', 2: 'X', 3: 'T', name: 'Alisa'}
+// const merged4 = merge({ name: "Alisa" }, "TEXT"); // {0: 'T', 1: 'E', 2: 'X', 3: 'T', name: 'Alisa'}
 
 function merge5<T extends object, U extends object>(objA: T, objB: U) {
   return Object.assign(objA, objB);
 }
 
-const merged5 = merge5({ name: "Alisa" }, "TEXT");
+// const merged5 = merge5({ name: "Alisa" }, "TEXT");
 
-merged5.name;
+// merged5.name;
 
 type Length = {
   length: number;
@@ -119,11 +119,11 @@ function getLength<T extends Length>(str: T) {
 
 getLength("text");
 getLength([1, 2, 3]);
-getLength(100); // Error: Argument of type 'number' is not assignable to parameter of type 'ILength'
+// getLength(100); // Error: Argument of type 'number' is not assignable to parameter of type 'ILength'
 
 function arrayLogger<T extends Array<string>>(array: T): void {
   array.forEach((item) => console.log(item));
 }
 
 arrayLogger(["Hello", "World"]); // Ok
-arrayLogger([1, 2, 3]); // Error: Тип "number" не может быть назначен для типа "string"
+// arrayLogger([1, 2, 3]); // Error: Тип "number" не может быть назначен для типа "string"
