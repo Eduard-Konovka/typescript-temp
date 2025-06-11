@@ -127,3 +127,35 @@ function arrayLogger<T extends Array<string>>(array: T): void {
 
 arrayLogger(["Hello", "World"]); // Ok
 // arrayLogger([1, 2, 3]); // Error: Тип "number" не может быть назначен для типа "string"
+
+// keyof ==================================
+
+type Person4 = {
+  name: string;
+  age: number;
+  location: string;
+};
+
+type PersonKeys = keyof Person4; // 'name' | 'age' | 'location'
+
+function getPersonInfo(person4: Person4, key: PersonKeys) {
+  return person4[key];
+}
+
+const john: Person4 = {
+  name: "John",
+  age: 25,
+  location: "NY",
+};
+
+console.log(getPersonInfo(john, "age")); // 25
+console.log(getPersonInfo(john, "name")); // 'John'
+// console.log(getPersonInfo(john, "job")); // Error: Argument of type '"job"' is not assignable to parameter of type 'PersonKeys'
+
+function extractValue<T extends object, U extends keyof T>(obj: T, key: U) {
+  return obj[key];
+}
+
+extractValue({ name: "John" }, "name");
+
+// Generic Classes ===========================
