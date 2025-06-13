@@ -205,3 +205,31 @@ console.log(pair2.getKey()); // 1
 console.log(pair2.getValue()); // true
 
 // Utility Types =================================
+
+// Partial<T> ------------------------------------
+
+type User2 = {
+  id: number;
+  name: string;
+  email: string;
+  registered: boolean;
+};
+
+function createUser(data: Partial<User2>): User2 {
+  // Деякі значення за замовчуванням:
+  const defaultUser: User2 = {
+    id: Date.now(),
+    name: "",
+    email: "",
+    registered: false,
+  };
+
+  // З'єднуємо дані користувача та значення за замовчуванням
+  return { ...defaultUser, ...data };
+}
+
+const newUser = createUser({ name: "Alice", email: "alice@example.com" });
+
+console.log("newUser:", newUser);
+
+// Readonly<T> -----------------------------------
