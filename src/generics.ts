@@ -233,3 +233,31 @@ const newUser = createUser({ name: "Alice", email: "alice@example.com" });
 console.log("newUser:", newUser);
 
 // Readonly<T> -----------------------------------
+
+type User3 = {
+  id: number;
+  name: string;
+  email: string;
+};
+
+let alice2: User3 = {
+  id: 1,
+  name: "Alice",
+  email: "alice@example.com",
+};
+
+alice2.name = "Bob"; // OK
+
+let aliceReadonly: Readonly<User3> = {
+  id: 1,
+  name: "Alice",
+  email: "alice@example.com",
+};
+
+// aliceReadonly.name = "Bob"; // Error: Cannot assign to 'name' because it is a read-only property.
+
+const arr2: Readonly<string[]> = ["One", "Two", "Three"];
+
+// arr2.push("Four"); // Error: Property 'push' does not exist on type 'readonly string[]'.
+
+// Pick<T, K> ---------------------------------
