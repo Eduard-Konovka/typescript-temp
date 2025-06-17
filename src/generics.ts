@@ -261,3 +261,68 @@ const arr2: Readonly<string[]> = ["One", "Two", "Three"];
 // arr2.push("Four"); // Error: Property 'push' does not exist on type 'readonly string[]'.
 
 // Pick<T, K> ---------------------------------
+
+type User4 = {
+  id: number;
+  name: string;
+  email: string;
+};
+
+type UserBasicInfo = Pick<User4, "id" | "name">;
+
+let userBasicInfo: UserBasicInfo = {
+  id: 1,
+  name: "John Doe",
+  // email: "john@example.com", // Error: Property 'email' does not exist on type 'UserBasicInfo'
+};
+
+//
+
+type BaseEmployee = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  position: string;
+  department: string;
+  startDate: Date;
+  // ...і багато інших полів
+};
+
+type BaseProject = {
+  id: number;
+  name: string;
+  budget: number;
+  deadline: Date;
+  // ...і багато інших полів
+};
+
+type Assignment = {
+  employee: Pick<BaseEmployee, "id" | "firstName" | "lastName">;
+  projects: Pick<BaseProject, "id" | "name" | "deadline">[];
+  shouldNotifyEmployee?: boolean;
+};
+
+let assignment: Assignment = {
+  employee: {
+    id: 1,
+    firstName: "Alice",
+    lastName: "Smith",
+  },
+  projects: [
+    {
+      id: 101,
+      name: "Project A",
+      deadline: new Date("2023-12-31"),
+    },
+    {
+      id: 102,
+      name: "Project B",
+      deadline: new Date("2024-01-15"),
+    },
+  ],
+  shouldNotifyEmployee: true,
+};
+
+console.log("Assignment:", assignment);
+
+// Record<K, T> ---------------------------------
