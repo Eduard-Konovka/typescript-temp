@@ -375,3 +375,18 @@ export type Form = InitialFormType & {
 };
 
 // Omit<T, K> ---------------------------------
+
+type Person = {
+  name: string;
+  age: number;
+  location: string;
+};
+
+type PersonWithoutLocation = Omit<Person, "location">;
+let person: PersonWithoutLocation = {
+  name: "Alice",
+  age: 30,
+  // location: "NY", // Error: Property 'location' does not exist on type 'PersonWithoutLocation'
+};
+
+// ReturnType<T> ---------------------------------
