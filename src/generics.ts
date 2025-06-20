@@ -390,3 +390,40 @@ let person: PersonWithoutLocation = {
 };
 
 // ReturnType<T> ---------------------------------
+
+function greeting() {
+  return "Hello, world!";
+}
+
+type Greeting = ReturnType<typeof greeting>; // 'string'
+
+function multiply(a: number, b: number) {
+  return a * b;
+}
+
+type MultiplyResult = ReturnType<typeof multiply>; // 'number'
+
+//
+
+type Callback = (...args: unknown[]) => unknown;
+
+function createLoggedFunction<T extends Callback>(func: T) {
+  let funcRef = func;
+
+  const loggedFunction = (...args: Parameters<T>) => {
+    console.log(`Function ${func.name} was called with arguments:`, args);
+    const result = funcRef(...args) as ReturnType<T>;
+    return result;
+  };
+
+  return loggedFunction;
+}
+
+function wordConcat(...words: unknown[]) {
+  return words.join("");
+}
+
+const loggedWords = createLoggedFunction(wordConcat);
+console.log(loggedWords("a", "b", "c"));
+
+// Parameters<T> ---------------------------------
