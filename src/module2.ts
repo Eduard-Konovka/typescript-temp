@@ -14,4 +14,4 @@
 import "./type-casting";
 // import "./index-properties";
 // import "./function-overloads";
-import "./generics";
+// import "./generics";
