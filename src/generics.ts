@@ -427,3 +427,39 @@ const loggedWords = createLoggedFunction(wordConcat);
 console.log(loggedWords("a", "b", "c"));
 
 // Parameters<T> ---------------------------------
+
+type MyFunctionType = (a: string, b: number, c: boolean) => void;
+
+type MyParametersType = Parameters<MyFunctionType>;
+// Результат: [string, number, boolean]
+
+function myFunction(a: string, b: number, c: boolean) {
+  console.log(`a: ${a}, b: ${b}, c: ${c}`);
+}
+const params: MyParametersType = ["Hello", 42, true];
+myFunction(...params); // Викликає myFunction з параметрами "Hello", 42, true
+
+// NonNullable<T> ---------------------------------
+// Утиліта NonNullable<T> створює тип, який виключає null і undefined з типу T.
+// Це корисно, коли потрібно гарантувати, що значення не буде null або undefined.
+
+type SomeType = string | null | undefined;
+
+// NonNullableType будет равен 'string'
+type NonNullableType = NonNullable<SomeType>;
+
+type User = {
+  id: number;
+  name: string;
+  email?: string | null;
+};
+
+type NonNullableUser = {
+  [K in keyof User]: NonNullable<User[K]>;
+};
+
+// Результат: {
+//   id: number;
+//   name: string;
+//   email: string; // email не може бути null або undefined
+// }
